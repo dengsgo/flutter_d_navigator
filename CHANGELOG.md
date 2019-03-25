@@ -1,3 +1,12 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - init  
 
-* TODO: Describe initial release.
+* init project  
+  
+
+## [0.1.0] - 完善基础模块  
+
+* 增加 跳转  
+* 增加 跳转类型  
+* 增加 参数传递  
+* 增加 授权验证  
+ 
