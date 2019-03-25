@@ -16,6 +16,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
 
+    // 注册页面，只需注册一次
     registerRouter();
   }
 
