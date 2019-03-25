@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:d_navigator/d_navigator.dart';
 import 'page.dart';
+import 'register_route.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    registerRouter();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,6 +30,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -32,63 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-
-    DNavigator.registerNameRoute("/page-a", (_) {
-      return new MaterialPageRoute(
-        builder: (BuildContext context) {
-          return PageA();
-        }
-      );
-    });
-
-    DNavigator.registerNameRoute("/page-b", (DNavigatorQuery query) {
-      return new MaterialPageRoute(
-          builder: (BuildContext context) {
-            return PageB(query);
-          }
-      );
-    });
-
-    DNavigator.registerNameRoute("/page-c", (DNavigatorQuery query) {
-      return new MaterialPageRoute(
-          builder: (BuildContext context) {
-            return PageC(query);
-          }
-      );
-    });
-
-    DNavigator.registerNameRoute("/page-d", (_) {
-      return new MaterialPageRoute(
-          builder: (BuildContext context) {
-            return PageD();
-          }
-      );
-    });
-
-    DNavigator.registerNameRoute("/page-e", (_) {
-      return new MaterialPageRoute(
-          builder: (BuildContext context) {
-            return PageE();
-          }
-      );
-    });
-
-    DNavigator.registerNameRoute("/page-f", (_) {
-      return new MaterialPageRoute(
-          builder: (BuildContext context) {
-            return PageF();
-          }
-      );
-    });
-
-    DNavigator.registerNameRoute("/page-auth", (_) {
-      return new MaterialPageRoute(
-          builder: (BuildContext context) {
-            return PageAuth();
-          }
-      );
-    });
-
   }
 
   goPageA() {
