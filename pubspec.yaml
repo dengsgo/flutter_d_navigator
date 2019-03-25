@@ -1,8 +1,8 @@
 name: d_navigator
-description: A new Flutter project.
-version: 0.0.1
-author:
-homepage:
+description: Flutter project with Navigator Extends.
+version: 0.1.0
+author: dengsgo
+homepage: https://www.yoytang.com
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
