@@ -85,15 +85,30 @@ class DNavigator {
     return DNavigator(state);
   }
 
+  /// register the page into the component .
+  /// A page only needs to be registered once
+  /// ```dart
+  /// DNavigator.registerNameRoute("/page-c", (DNavigatorQuery query) {
+  //    return new MaterialPageRoute(
+  //        builder: (BuildContext context) {
+  //          return PageC(query);
+  //        }
+  //    );
+  //  });
+  /// ```
   static void registerNameRoute(String name, DQueryPageRoute route) {
     namedRoutesMapping[name] = route;
   }
 
+  /// Set the push type
   DNavigator setPushType(DNavigatorPushType type) {
     pushType = type;
     return this;
   }
 
+  /// Method of jumping pages.
+  /// In general, you should not call this method directly,
+  /// using the goNamed method is a better choice.
   Future<T> go<T extends Object>(PageRoute<T> route) async {
     switch (pushType) {
       case DNavigatorPushType.push:
@@ -112,6 +127,16 @@ class DNavigator {
     return await navigatorState.push(route);
   }
 
+  /// Set the callback method required for permission verification.
+  /// ```dart
+  /// BoolCallback isAuthorized = () => Future.value(false);
+  //    ObjectCallback goAuthPage = () async {
+  //      return await DNavigator.of(context).goNamed("/page-auth", null);
+  //    };
+  //    DNavigator.of(context)
+  //        .setAuthorizedHandlerFunc(isAuthorized, goAuthPage)
+  //        .goNamed("/page-f", DNavigatorQuery(mustAuthorize: true,));
+  /// ```
   DNavigator setAuthorizedHandlerFunc(BoolCallback isAuthorized, ObjectCallback goAuthPage) {
     _isAuthorizedHandler = isAuthorized ??  () => Future.value(true);
     _goAuth = goAuthPage ?? () => Future.value(true);
@@ -126,6 +151,7 @@ class DNavigator {
     return r is bool && r;
   }
 
+  /// Jump to registered page
   Future<T> goNamed<T extends Object>(String name, DNavigatorQuery query) async {
     if (query !=null && query.mustAuthorize && !await _authHandler()) {
       return null;
@@ -134,6 +160,7 @@ class DNavigator {
     return await go(namedRoutesMapping[name](query));
   }
 
+  /// pop page
   bool pop<T extends Object>([ T result ]) {
     return navigatorState.pop(result);
   }
