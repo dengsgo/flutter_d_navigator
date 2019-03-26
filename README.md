@@ -10,6 +10,7 @@ A navigation component based on the Flutter Navigator extension. It solves the s
 - 页面之间支持参数传递；  
 - 支持自定义复杂的页面参数；  
 - 内置权限验证逻辑，方便页面跳转鉴权(比如必须登录才能访问);  
+- 与 Navigator 组件不互斥，可以共同在一个项目中使用。（PS：DNavigator注册的路由在 Navigator 中不能使用，反之亦然）  
   
   
 
@@ -17,6 +18,7 @@ A navigation component based on the Flutter Navigator extension. It solves the s
 - Support for parameter passing between pages;  
 - Support for custom complex page parameters;  
 - Built-in permission verification logic to facilitate page jump authentication (such as having to log in to access);  
+- Not mutually exclusive with the Navigator component, can be used together in a project. (PS: The route registered by DNavigator cannot be used in Navigator, and vice versa)  
 
 
 ## Getting Started
