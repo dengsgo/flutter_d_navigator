@@ -121,7 +121,7 @@ class DNavigator {
 
   /// Method of jumping pages.
   /// In general, you should not call this method directly,
-  /// using the goNamed method is a better choice.
+  /// using the pushNamed method is a better choice.
   Future<T> go<T extends Object>(PageRoute<T> route) async {
     switch (pushType) {
       case DNavigatorPushType.push:
