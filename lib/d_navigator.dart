@@ -29,7 +29,7 @@ class DNavigatorQuery {
   /// Built-in hero animation tag.
   /// you can receive this parameter on the page you want to jump,
   /// passed to the Hero tag widget
-  final String heroTag;
+  final Object heroTag;
 }
 
 /// typedef params
