@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:d_navigator/d_navigator.dart';
+import 'package:flutter_d_navigator/d_navigator.dart';
 import 'page.dart';
 import 'register_route.dart';
 
