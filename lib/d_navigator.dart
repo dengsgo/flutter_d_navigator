@@ -97,6 +97,9 @@ class DNavigator {
   //  });
   /// ```
   static void registerNameRoute(String name, DQueryPageRoute route) {
+    if (_namedRoutesMapping[name] != null) {
+      throw DNavigatorError("route name '$name' aready exist!");
+    }
     _namedRoutesMapping[name] = route;
   }
 
@@ -157,7 +160,7 @@ class DNavigator {
       return null;
     }
     if (_namedRoutesMapping[name] == null) {
-      throw DNavigatorError("not found route name: $name");
+      throw DNavigatorError("not found route name: '$name'");
     }
     return await go(_namedRoutesMapping[name](query));
   }
