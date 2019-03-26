@@ -19,7 +19,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  d_navigator:
+  flutter_d_navigator:
     path: "../"
 
   # The following adds the Cupertino Icons font to your application.
