@@ -29,6 +29,10 @@ A navigation component based on the Flutter Navigator extension. It solves the s
 ```
 然后执行 `flutter packages get` 即可.  
 
+## Snapshot  
+[demo snapshot](snapshot/demo.mp4)  
+
+
 ## Usage  
 
 ```dart 
