@@ -50,17 +50,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   goPageA() {
-    DNavigator.of(context).goNamed("/page-a", null);
+    DNavigator.of(context).pushNamed("/page-a", null);
   }
 
   goPageB() {
-    DNavigator.of(context).goNamed("/page-b", DNavigatorQuery(
+    DNavigator.of(context).pushNamed("/page-b", DNavigatorQuery(
       id: 10086,
     ));
   }
 
   goPageC() {
-    DNavigator.of(context).goNamed("/page-c", ExtendsDNavigatorQuery(
+    DNavigator.of(context).pushNamed("/page-c", ExtendsDNavigatorQuery(
       id: 10086,
       nickname: "中国移动",
       address: "移动通信上海分公司",
@@ -71,25 +71,25 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   goPageD() {
-    DNavigator.of(context).goNamed("/page-d", null);
+    DNavigator.of(context).pushNamed("/page-d", null);
   }
 
   goPageE() {
-    DNavigator.of(context).goNamed("/page-e", null);
+    DNavigator.of(context).pushNamed("/page-e", null);
   }
 
   goPageFWithoutAuth() {
-    DNavigator.of(context).goNamed("/page-f", null);
+    DNavigator.of(context).pushNamed("/page-f", null);
   }
 
   goPageFWithAuth() {
     BoolCallback isAuthorized = () => Future.value(false);
     ObjectCallback goAuthPage = () async {
-      return await DNavigator.of(context).goNamed("/page-auth", null);
+      return await DNavigator.of(context).pushNamed("/page-auth", null);
     };
     DNavigator.of(context)
         .setAuthorizedHandlerFunc(isAuthorized, goAuthPage)
-        .goNamed("/page-f", DNavigatorQuery(mustAuthorize: true,));
+        .pushNamed("/page-f", DNavigatorQuery(mustAuthorize: true,));
   }
 
   @override

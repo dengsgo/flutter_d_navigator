@@ -77,7 +77,7 @@ class PageD extends StatelessWidget {
           onPressed: () {
             DNavigator.of(context)
                 .setPushType(DNavigatorPushType.popAndPush)
-                .goNamed("/page-a", null);
+                .pushNamed("/page-a", null);
           },
           child: Text("pop and push page A"),
         ),
@@ -98,7 +98,7 @@ class PageE extends StatelessWidget {
           onPressed: () {
             DNavigator.of(context)
                 .setPushType(DNavigatorPushType.pushReplace)
-                .goNamed("/page-a", null);
+                .pushNamed("/page-a", null);
           },
           child: Text("push replace Page A"),
         ),
