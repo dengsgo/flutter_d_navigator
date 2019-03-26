@@ -66,8 +66,8 @@ typedef Future<Object> ObjectCallback();
 /// ```
 ///
 class DNavigator {
-  DNavigator(this.navigatorState) :
-        assert(navigatorState != null),
+  DNavigator(this.navigatorState)
+      : assert(navigatorState != null),
         pushType = DNavigatorPushType.push;
 
   NavigatorState navigatorState;
@@ -77,7 +77,8 @@ class DNavigator {
   ObjectCallback _goAuth;
 
   /// Routing map
-  static Map<String, DQueryPageRoute> _namedRoutesMapping = <String, DQueryPageRoute>{};
+  static Map<String, DQueryPageRoute> _namedRoutesMapping =
+      <String, DQueryPageRoute>{};
 
   /// Initialization component
   /// ```dart
@@ -150,8 +151,9 @@ class DNavigator {
   //        .setAuthorizedHandlerFunc(isAuthorized, goAuthPage)
   //        .goNamed("/page-f", DNavigatorQuery(mustAuthorize: true,));
   /// ```
-  DNavigator setAuthorizedHandlerFunc(BoolCallback isAuthorized, ObjectCallback goAuthPage) {
-    _isAuthorizedHandler = isAuthorized ??  () => Future.value(true);
+  DNavigator setAuthorizedHandlerFunc(
+      BoolCallback isAuthorized, ObjectCallback goAuthPage) {
+    _isAuthorizedHandler = isAuthorized ?? () => Future.value(true);
     _goAuth = goAuthPage ?? () => Future.value(true);
     return this;
   }
@@ -165,8 +167,9 @@ class DNavigator {
   }
 
   /// Jump to registered page
-  Future<T> pushNamed<T extends Object>(String name, DNavigatorQuery query) async {
-    if (query !=null && query.mustAuthorize && !await _authHandler()) {
+  Future<T> pushNamed<T extends Object>(
+      String name, DNavigatorQuery query) async {
+    if (query != null && query.mustAuthorize && !await _authHandler()) {
       return null;
     }
     if (_namedRoutesMapping[name] == null) {
@@ -177,11 +180,11 @@ class DNavigator {
   }
 
   /// pop page
-  bool pop<T extends Object>([ T result ]) {
+  bool pop<T extends Object>([T result]) {
     return navigatorState.pop(result);
   }
-
 }
+
 /// Error class
 class DNavigatorError extends Error {
   final Object message;

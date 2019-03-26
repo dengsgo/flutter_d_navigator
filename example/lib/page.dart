@@ -59,7 +59,8 @@ class PageC extends StatelessWidget {
         title: Text("Page C"),
       ),
       body: Center(
-        child: Text("Page C: DNavigatorQuery 扩展对象参数传递\n\nid:${query.id}\nname:${query.nickname}\naddress:${query.address}"),
+        child: Text(
+            "Page C: DNavigatorQuery 扩展对象参数传递\n\nid:${query.id}\nname:${query.nickname}\naddress:${query.address}"),
       ),
     );
   }
@@ -155,4 +156,3 @@ class PageAuth extends StatelessWidget {
     );
   }
 }
-

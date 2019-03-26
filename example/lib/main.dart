@@ -11,7 +11,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     super.initState();
@@ -32,7 +31,6 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -43,7 +41,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -54,20 +51,24 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   goPageB() {
-    DNavigator.of(context).pushNamed("/page-b", DNavigatorQuery(
-      id: 10086,
-    ));
+    DNavigator.of(context).pushNamed(
+        "/page-b",
+        DNavigatorQuery(
+          id: 10086,
+        ));
   }
 
   goPageC() {
-    DNavigator.of(context).pushNamed("/page-c", ExtendsDNavigatorQuery(
-      id: 10086,
-      nickname: "中国移动",
-      address: "移动通信上海分公司",
-      map: <String, int> {
-        "hello": 1,
-      },
-    ));
+    DNavigator.of(context).pushNamed(
+        "/page-c",
+        ExtendsDNavigatorQuery(
+          id: 10086,
+          nickname: "中国移动",
+          address: "移动通信上海分公司",
+          map: <String, int>{
+            "hello": 1,
+          },
+        ));
   }
 
   goPageD() {
@@ -89,7 +90,11 @@ class _MyHomePageState extends State<MyHomePage> {
     };
     DNavigator.of(context)
         .setAuthorizedHandlerFunc(isAuthorized, goAuthPage)
-        .pushNamed("/page-f", DNavigatorQuery(mustAuthorize: true,));
+        .pushNamed(
+            "/page-f",
+            DNavigatorQuery(
+              mustAuthorize: true,
+            ));
   }
 
   @override
