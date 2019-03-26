@@ -1,7 +1,7 @@
 # DNavigator
 
-基于 Flutter Navigator 扩展的导航组件。它解决了 Navigator 无法传递参数的缺点，同时增加了权限验证的页面跳转逻辑，使得页面管理更加方便。  
-A navigation component based on the Flutter Navigator extension. It solves the shortcomings of Navigator's inability to pass parameters, and increases the page jump logic for permission verification, making page management more convenient.  
+基于 Flutter Navigator 的扩展导航组件。它解决了 Navigator 无法传递参数的缺点，同时增加了权限验证的页面跳转逻辑，使得页面管理更加方便。  
+Extended navigation component based on Flutter Navigator. It solves the shortcomings of Navigator's inability to pass parameters, and increases the page jump logic for permission verification, making page management more convenient.   
 
 
 ## Feature
@@ -10,7 +10,7 @@ A navigation component based on the Flutter Navigator extension. It solves the s
 - 页面之间支持参数传递；  
 - 支持自定义复杂的页面参数；  
 - 内置权限验证逻辑，方便页面跳转鉴权(比如必须登录才能访问);  
-- 与 Navigator 组件不互斥，可以共同在一个项目中使用。（PS：DNavigator注册的路由在 Navigator 中不能使用，反之亦然）  
+- 与 Navigator 组件不互斥，可以在一个项目中同时使用。（PS：DNavigator注册的路由在 Navigator 中不能使用，反之亦然）  
   
   
 
@@ -18,14 +18,13 @@ A navigation component based on the Flutter Navigator extension. It solves the s
 - Support for parameter passing between pages;  
 - Support for custom complex page parameters;  
 - Built-in permission verification logic to facilitate page jump authentication (such as having to log in to access);  
-- Not mutually exclusive with the Navigator component, can be used together in a project. (PS: The route registered by DNavigator cannot be used in Navigator, and vice versa)  
-
+- Not mutually exclusive with the Navigator component, can be used simultaneously in one project. (PS: The route registered by DNavigator cannot be used in Navigator, and vice versa)  
 
 ## Getting Started
 
 在 `pubspec.yaml` 中添加依赖：  
 ```yaml
-  flutter_d_navigator: ^0.1.3
+  flutter_d_navigator: ^0.1.4
 ```
 然后执行 `flutter packages get` 即可.  
 
