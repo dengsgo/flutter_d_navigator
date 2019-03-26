@@ -235,15 +235,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ```
 
-  
+
 ## Feedback  
 
-如果使用过程出现了bug或者有什么建议意见，请让我知道 [issue](#issue)。  
-  
+如果使用过程出现了bug或者有什么建议意见，请让我知道 [issue](https://github.com/dengsgo/flutter_d_navigator/issues)。  
+
 If there is a bug in the process or if you have any suggestions, please let me know.
 
 
-  
+
 ## License  
 
 [Apache License](LICENSE)
