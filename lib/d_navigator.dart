@@ -16,6 +16,7 @@ class DNavigatorQuery {
     this.id,
     this.mustAuthorize: false,
     this.heroTag: "",
+    this.fromRoute,
   });
 
   final Object id;
@@ -30,6 +31,18 @@ class DNavigatorQuery {
   /// you can receive this parameter on the page you want to jump,
   /// passed to the Hero tag widget
   final Object heroTag;
+
+  DNavigatorStackRoute fromRoute;
+}
+
+class DNavigatorStackRoute {
+  DNavigatorStackRoute({
+    this.name,
+    this.query,
+  });
+
+  final String name;
+  final DNavigatorQuery query;
 }
 
 /// typedef params
@@ -68,6 +81,15 @@ class DNavigator {
 
   /// Routing map
   static Map<String, DQueryPageRoute> _namedRoutesMapping = <String, DQueryPageRoute>{};
+
+  /// pushed route stack
+  static List<DNavigatorStackRoute> _pushedRouteStack = <DNavigatorStackRoute>[];
+
+  /// get pushedRouteStack list
+  /// ```dart
+  ///   DNavigator.pushedRouteStack;
+  /// ```
+  static List<DNavigatorStackRoute> get pushedRouteStack => _pushedRouteStack;
 
   /// Initialization component
   /// ```dart
@@ -120,10 +142,16 @@ class DNavigator {
       case DNavigatorPushType.popAndPush:
         if (navigatorState.canPop()) {
           navigatorState.pop();
+          if (_pushedRouteStack.length >= 2) {
+            _pushedRouteStack.removeAt(_pushedRouteStack.length - 2);
+          }
         }
         return await navigatorState.push(route);
         break;
       case DNavigatorPushType.pushReplace:
+        if (_pushedRouteStack.length >= 2) {
+          _pushedRouteStack.removeAt(_pushedRouteStack.length - 2);
+        }
         return await navigatorState.pushReplacement(route);
         break;
     }
@@ -162,12 +190,33 @@ class DNavigator {
     if (_namedRoutesMapping[name] == null) {
       throw DNavigatorError("not found route name: '$name'");
     }
+    if (_pushedRouteStack.isNotEmpty) {
+      query.fromRoute = _pushedRouteStack.last;
+    }
+    _pushedRouteStack.add(DNavigatorStackRoute(
+      name: name,
+      query: query,
+    ));
     return await go(_namedRoutesMapping[name](query));
   }
 
   /// pop page
   bool pop<T extends Object>([ T result ]) {
+    if (_pushedRouteStack.isNotEmpty) {
+      _pushedRouteStack.removeLast();
+    }
     return navigatorState.pop(result);
+  }
+
+  /// pop top page
+  void popTop<T extends Object>([ T result ]) {
+    navigatorState.popUntil((_) {
+      if (_pushedRouteStack.isEmpty) {
+        return true;
+      }
+      _pushedRouteStack.removeLast();
+      return false;
+    });
   }
 
 }
