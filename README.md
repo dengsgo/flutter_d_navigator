@@ -24,7 +24,7 @@ Extended navigation component based on Flutter Navigator. It solves the shortcom
 
 在 `pubspec.yaml` 中添加依赖：  
 ```yaml
-  flutter_d_navigator: ^0.1.4
+  flutter_d_navigator: ^0.1.5
 ```
 然后执行 `flutter packages get` 即可.  
 
