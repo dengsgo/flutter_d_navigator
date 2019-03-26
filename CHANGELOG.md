@@ -1,3 +1,6 @@
+## [0.1.4] - 修改文档  
+ * 修改 readme 文档
+
 ## [0.1.3] - 增加snapshot
 
 * 增加 snapshot
