@@ -1,4 +1,4 @@
-library d_navigator;
+library flutter_d_navigator;
 
 import 'package:flutter/widgets.dart';
 
