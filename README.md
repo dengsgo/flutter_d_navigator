@@ -35,7 +35,7 @@ Extended navigation component based on Flutter Navigator. It solves the shortcom
 ## Usage  
 
 ```dart 
-import 'package:d_navigator/d_navigator.dart';
+import 'package:flutter_d_navigator/flutter_d_navigator.dart';
 
 /// code 
 
