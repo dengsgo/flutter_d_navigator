@@ -152,11 +152,13 @@ class DNavigator {
   }
 
   /// Jump to registered page
-  Future<T> goNamed<T extends Object>(String name, DNavigatorQuery query) async {
+  Future<T> pushNamed<T extends Object>(String name, DNavigatorQuery query) async {
     if (query !=null && query.mustAuthorize && !await _authHandler()) {
       return null;
     }
-
+    if (namedRoutesMapping[name] == null) {
+      throw DNavigatorError("not found route name: $name");
+    }
     return await go(namedRoutesMapping[name](query));
   }
 
@@ -165,4 +167,10 @@ class DNavigator {
     return navigatorState.pop(result);
   }
 
+}
+
+class DNavigatorError extends Error {
+  final Object message;
+  DNavigatorError([this.message]);
+  String toString() => "dnavigator error";
 }
