@@ -67,7 +67,7 @@ class DNavigator {
   ObjectCallback _goAuth;
 
   /// Routing map
-  static Map<String, DQueryPageRoute> namedRoutesMapping = <String, DQueryPageRoute>{};
+  static Map<String, DQueryPageRoute> _namedRoutesMapping = <String, DQueryPageRoute>{};
 
   /// Initialization component
   /// ```dart
@@ -97,7 +97,7 @@ class DNavigator {
   //  });
   /// ```
   static void registerNameRoute(String name, DQueryPageRoute route) {
-    namedRoutesMapping[name] = route;
+    _namedRoutesMapping[name] = route;
   }
 
   /// Set the push type
@@ -156,10 +156,10 @@ class DNavigator {
     if (query !=null && query.mustAuthorize && !await _authHandler()) {
       return null;
     }
-    if (namedRoutesMapping[name] == null) {
+    if (_namedRoutesMapping[name] == null) {
       throw DNavigatorError("not found route name: $name");
     }
-    return await go(namedRoutesMapping[name](query));
+    return await go(_namedRoutesMapping[name](query));
   }
 
   /// pop page
@@ -168,7 +168,7 @@ class DNavigator {
   }
 
 }
-
+/// Error class
 class DNavigatorError extends Error {
   final Object message;
   DNavigatorError([this.message]);
