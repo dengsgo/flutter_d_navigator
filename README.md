@@ -25,7 +25,7 @@ A navigation component based on the Flutter Navigator extension. It solves the s
 
 在 `pubspec.yaml` 中添加依赖：  
 ```yaml
-  d_navigator: ^0.1.0
+  flutter_d_navigator: ^0.1.3
 ```
 然后执行 `flutter packages get` 即可.  
 
