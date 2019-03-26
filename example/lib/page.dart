@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_d_navigator/d_navigator.dart';
+import 'package:flutter_d_navigator/flutter_d_navigator.dart';
 
 class ExtendsDNavigatorQuery extends DNavigatorQuery {
   ExtendsDNavigatorQuery({
